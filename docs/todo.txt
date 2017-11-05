@@ -13,6 +13,19 @@ ToDo / Missing features list:
 - Skill changes? more of a balance thing
 - NX economy?
 
+- FINISH THE QUEST 11/5
+- FINISH THE WEBSITE 11/8
+     - FORUM
+     - VOTE POINTS
+     - DONATION POINTS
+     - RANKING
+     - LOGIN AUTH
+- GTOP BANNER / NEW CLIENT SPLASH? 11/8
+- QA 11/8
+- RELEASE BETA 11/11
+
+- remove the showHint on equipment level up
+
 ---------------------------
 ** Others **
 - Marriage
@@ -29,7 +42,10 @@ ToDo / Missing features list:
 ** Basic PQs **
 ---------------------------
 
+---------------------------
 ** Packet issues & advanced PQs **
+---------------------------
+
 - Mystic Doors (won't deploy players properly is some situations, only destination map matches).
 - Ariant Party Quest
 - Monster Carnival 1/2 Party Quest
@@ -37,16 +53,14 @@ ToDo / Missing features list:
 
 ---------------------------
 ** Skills **
-- Some pirate skills incomplete or not implemented yet.
 ---------------------------
-
+- Some pirate skills incomplete or not implemented yet.
 
 ---------------------------
 ** Jobs **
+---------------------------
 - Check Aran
 - Check Cygnus Knights
----------------------------
-
 
 ---------------------------
 ** GM/ADMIN **
