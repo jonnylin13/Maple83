@@ -4,4 +4,9 @@
 * Setup for eclipse
 * !face command fixed, != null instead of ==
 * Huge amount of code cleanup
-* Added console commands, stop/quit and restart
+* Added unlimited three snails, can disable in constants.ServerConstants
+
+11/5/2017
+---------
+* Backed up old quest wz
+* Removed quest requirements for quest 8249 7th day market

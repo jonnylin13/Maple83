@@ -61,10 +61,13 @@ public class QuestRequirement extends MapleQuestRequirement {
 			int stateReq = quests.get(questID);
 			MapleQuestStatus q = chr.getQuest(MapleQuest.getInstance(questID));
 			
-			if(q == null && MapleQuestStatus.Status.getById(stateReq).equals(MapleQuestStatus.Status.NOT_STARTED))
+			if (q == null) continue;
+			
+			if(MapleQuestStatus.Status.getById(stateReq).equals(MapleQuestStatus.Status.NOT_STARTED))
 				continue;
 			
-			if(q == null || !q.getStatus().equals(MapleQuestStatus.Status.getById(stateReq))) {
+			// We have a discrepancy
+			if(!q.getStatus().equals(MapleQuestStatus.Status.getById(stateReq))) {
 				return false;
 			}
 			

@@ -1,8 +1,10 @@
 /*
  This file is part of the OdinMS Maple Story Server
+ and the Maple83 Server
  Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
  Jan Christian Meyer <vimes@odinms.de>
+ Jonathan Lin <jlin3@scu.edu>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Affero General Public License as
@@ -430,6 +432,7 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                     }
                     if (attack.skill != 0) {
                         if (attackEffect.getFixDamage() != -1) {
+                        	
                             if (totDamageToOneMonster != attackEffect.getFixDamage() && totDamageToOneMonster != 0) {
                                 AutobanFactory.FIX_DAMAGE.autoban(player, String.valueOf(totDamageToOneMonster) + " damage");
                             }
@@ -450,13 +453,16 @@ public abstract class AbstractDealDamageHandler extends AbstractMaplePacketHandl
                                     default:
                                         shellId = 4000016;
                                 }
-                                
-                                if(api.haveItem(shellId, 1)) {
-                                    api.gainItem(shellId, (short)-1, false);
-                                    totDamageToOneMonster *= player.getLevel();
-                                }
+                                if (ServerConstants.USE_UNLIMITED_THREE_SNAILS)
+                                	totDamageToOneMonster *= player.getLevel();
                                 else {
-                                    player.dropMessage(5, "You ran out of shells to use to activate the hidden power of Three Snails.");
+                                	// Lame
+                                	if(api.haveItem(shellId, 1)) {
+                                        api.gainItem(shellId, (short)-1, false);
+                                        totDamageToOneMonster *= player.getLevel();
+                                    } else {
+                                        player.dropMessage(5, "You ran out of shells to use to activate the hidden power of Three Snails.");
+                                    }
                                 }
                             }
                         }

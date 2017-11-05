@@ -8,6 +8,10 @@ jonnylin13 - Freelance Developer
 ToDo / Missing features list:
 ---------------------------
 
+- Buffed channels
+- Different xp curve?
+- Skill changes? more of a balance thing
+- NX economy?
 
 ---------------------------
 ** Others **
@@ -19,20 +23,17 @@ ToDo / Missing features list:
 ** Quest **
 ---------------------------
 
+- Remove 7th Day Market/change to Maple83 Origin Quest
 
 ---------------------------
 ** Basic PQs **
 ---------------------------
 
-
----------------------------
 ** Packet issues & advanced PQs **
 - Mystic Doors (won't deploy players properly is some situations, only destination map matches).
 - Ariant Party Quest
 - Monster Carnival 1/2 Party Quest
 - Nett's Pyramid Party Quest
----------------------------
-
 
 ---------------------------
 ** Skills **

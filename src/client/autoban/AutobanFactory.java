@@ -1,8 +1,10 @@
 /*
 This file is part of the OdinMS Maple Story Server
+and the Maple83 Server
 Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
 Matthias Butz <matze@odinms.de>
 Jan Christian Meyer <vimes@odinms.de>
+Jonathan Lin <jlin3@scu.edu>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -80,16 +82,14 @@ public enum AutobanFactory {
 		return expiretime;
 	}
 
-	@SuppressWarnings("unused")
 	public void addPoint(AutobanManager ban, String reason) {
-            if(ServerConstants.USE_AUTOBAN == true) {
+            if(ServerConstants.USE_AUTOBAN) {
 		ban.addPoint(this, reason);
             }
 	}
 	
-	@SuppressWarnings("unused")
 	public void alert(MapleCharacter chr, String reason) {
-            if(ServerConstants.USE_AUTOBAN == true) {
+            if(ServerConstants.USE_AUTOBAN) {
 		FilePrinter.printError("autobanwarning.txt", (chr != null ? MapleCharacter.makeMapleReadable(chr.getName()) : "") + " caused " + this.name() + " " + reason + "\r\n");
 		if (chr != null && MapleLogger.ignored.contains(chr.getName())){
 			return;
@@ -98,9 +98,8 @@ public enum AutobanFactory {
             }
 	}
 	
-	@SuppressWarnings("unused")
 	public void autoban(MapleCharacter chr, String value) {
-            if(ServerConstants.USE_AUTOBAN == true) {
+            if(ServerConstants.USE_AUTOBAN) {
 		chr.autoban("Autobanned for (" + this.name() + ": " + value + ")");
 		//chr.sendPolice("You will be disconnected for (" + this.name() + ": " + value + ")");
             }

@@ -51,7 +51,7 @@ import net.server.handlers.login.ViewCharHandler;
 
 public final class PacketProcessor {
 
-    private final static Map<String, PacketProcessor> instances = new LinkedHashMap<>();
+    private final static Map<String, PacketProcessor> instances = new LinkedHashMap<String, PacketProcessor>();
     private MaplePacketHandler[] handlers;
 
     private PacketProcessor() {

@@ -793,7 +793,6 @@ public class MapleItemInformationProvider {
         }
     }
     
-    @SuppressWarnings("unused")
 	public Item scrollEquipWithId(Item equip, int scrollId, boolean usingWhiteScroll, int vegaItemId, boolean isGM) {
         boolean assertGM = (isGM && ServerConstants.USE_PERFECT_GM_SCROLL);
         

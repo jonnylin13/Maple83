@@ -415,6 +415,7 @@ public class AbstractPlayerInteraction {
             return(val >= 111 && val <= 113);
         }
         
+	@SuppressWarnings("unused")
 	public Item gainItem(int id, short quantity, boolean randomStats, boolean showMessage, long expires, MaplePet from) {
 		Item item = null;
                 MaplePet evolved = null;

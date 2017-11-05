@@ -63655,11 +63655,11 @@
       <int name="npc" value="9209001"/>
       <imgdir name="quest">
         <imgdir name="0">
-          <int name="id" value="8248"/>
-          <int name="state" value="2"/>
+          <!-- Removed these quest requirements -->
+          <!--int name="id" value="8248"/-->
+          <!--int name="state" value="2"/-->
         </imgdir>
       </imgdir>
-      <int name="lvmin" value="30"/>
     </imgdir>
   </imgdir>
   <imgdir name="8251">
