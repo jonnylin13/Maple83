@@ -34,6 +34,7 @@ import net.server.Server;
  * @author Matze
  * @author Quit
  * @author Ronan
+ * @contributor jonnylin13
  */
 public class RankingWorker implements Runnable {
     private Connection con;
@@ -85,7 +86,7 @@ public class RankingWorker implements Runnable {
             con = DatabaseConnection.getConnection();
             con.setAutoCommit(false);
             
-            if(ServerConstants.USE_REFRESH_RANK_MOVE == true) {
+            if(ServerConstants.USE_REFRESH_RANK_MOVE) {
                 resetMoveRank(true);
                 resetMoveRank(false);
             }

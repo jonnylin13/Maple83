@@ -32,7 +32,8 @@ public class Main {
     private static String[] additionalPages88 = {"101-150", "151-200"};
     private static String[] additionalPagesBB = {"101-120,", "121-140", "141-160", "161-180", "181-200"};
 
-    public static void main(String[] args) {
+    @SuppressWarnings("unused")
+	public static void main(String[] args) {
         //parseMonsterSection(TEST_STRING);
         for (String s : pages) {
             crawlPage("http://bbb.hidden-street.net/monster/" + s);

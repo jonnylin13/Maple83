@@ -45,6 +45,7 @@ import tools.Randomizer;
  *
  * @author Tyler (Twdtwd)
  * @author Ronan
+ * @contribute jonnylin13
  */
 public class ItemAction extends MapleQuestAction {
 	List<ItemData> items = new ArrayList<>();
@@ -163,7 +164,7 @@ public class ItemAction extends MapleQuestAction {
                 List<Pair<Item, MapleInventoryType>> selectList = new LinkedList<>();
                 List<Pair<Item, MapleInventoryType>> randomList = new LinkedList<>();
                 
-                List<Integer> allSlotUsed = new ArrayList(5);
+                List<Integer> allSlotUsed = new ArrayList<Integer>(5);
                 for(byte i = 0; i < 5; i++) allSlotUsed.add(0);
                 
                 for(ItemData item : items) {
@@ -209,7 +210,7 @@ public class ItemAction extends MapleQuestAction {
                         int result;
                         MapleClient c = chr.getClient();
                         
-                        List<Integer> rndUsed = new ArrayList(5);
+                        List<Integer> rndUsed = new ArrayList<Integer>(5);
                         for(byte i = 0; i < 5; i++) rndUsed.add(allSlotUsed.get(i));
                     
                         for(Pair<Item, MapleInventoryType> it: randomList) {

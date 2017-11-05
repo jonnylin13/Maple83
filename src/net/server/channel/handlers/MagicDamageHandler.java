@@ -22,7 +22,6 @@
 package net.server.channel.handlers;
 
 import server.MapleStatEffect;
-import server.TimerManager;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
 import client.MapleBuffStat;

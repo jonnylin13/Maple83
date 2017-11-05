@@ -43,13 +43,14 @@ public final class CoconutHandler extends AbstractMaplePacketHandler {
 		int id = slea.readShort();
 		MapleMap map = c.getPlayer().getMap();
 		MapleCoconut event = map.getCoconut();
+		if (event == null){
+			return;
+		}
 		MapleCoconuts nut = event.getCoconut(id);
 		if (!nut.isHittable()){
 			return;
 		}
-		if (event == null){
-			return;
-		}
+		
 		if (System.currentTimeMillis() < nut.getHitTime()){
 			return;
 		}

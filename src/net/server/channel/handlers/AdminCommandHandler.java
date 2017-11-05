@@ -42,7 +42,8 @@ import client.inventory.MapleInventoryType;
 
 public final class AdminCommandHandler extends AbstractMaplePacketHandler {
 
-    @Override
+	@SuppressWarnings("unused")
+	@Override
     public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
         if (!c.getPlayer().isGM()) {
             return;
@@ -62,9 +63,10 @@ public final class AdminCommandHandler extends AbstractMaplePacketHandler {
                 c.announce(MaplePacketCreator.enableActions());
                 break;
             case 0x01: { // /d (inv)
+            	// SERIOUSLY WTF IS THIS?
                 byte type = slea.readByte();
                 MapleInventory in = c.getPlayer().getInventory(MapleInventoryType.getByType(type));
-                for (short i = 1; i <= in.getSlotLimit(); i++) { //TODO What is the point of this loop?
+                for (byte i = 1; i <= in.getSlotLimit(); i++) { //TODO What is the point of this loop?
                     if (in.getItem(i) != null) {
                         MapleInventoryManipulator.removeFromSlot(c, MapleInventoryType.getByType(type), i, in.getItem(i).getQuantity(), false);
                     }

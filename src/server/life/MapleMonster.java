@@ -1,8 +1,10 @@
 /*
  This file is part of the OdinMS Maple Story Server
+ and the Maple83 Server
  Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
  Jan Christian Meyer <vimes@odinms.de>
+ Jonathan Lin <jlin3@scu.edu>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Affero General Public License as
@@ -218,7 +220,7 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         int curHp = hp.get();
         int trueDamage = Math.min(curHp, damage); // since magic happens otherwise B^)
         
-        if(ServerConstants.USE_DEBUG == true) from.dropMessage(5, "Hitted MOB " + this.getId() + ", OID " + this.getObjectId());
+        if(ServerConstants.USE_DEBUG) from.dropMessage(5, "Hit MOB " + this.getId() + ", OID " + this.getObjectId());
         dispatchMonsterDamaged(from, trueDamage);
 
         hp.set(curHp - trueDamage);

@@ -22,7 +22,6 @@
 package net.server.channel.handlers;
 
 import net.server.guild.MapleGuildResponse;
-import net.server.guild.MapleGuildCharacter;
 import net.server.guild.MapleGuild;
 import client.MapleClient;
 import net.AbstractMaplePacketHandler;

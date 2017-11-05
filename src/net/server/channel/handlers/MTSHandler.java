@@ -47,7 +47,8 @@ import client.inventory.MapleInventoryType;
 
 public final class MTSHandler extends AbstractMaplePacketHandler {
 
-    @Override
+    @SuppressWarnings("resource")
+	@Override
     public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
         if (!c.getPlayer().getCashShop().isOpened()) {
             return;

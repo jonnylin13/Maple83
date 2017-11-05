@@ -109,9 +109,10 @@ public class EventManager {
         return ServerConstants.EVENT_LOBBY_DELAY;
     }
     
-    private List<Integer> getLobbyRange() {
+    @SuppressWarnings("unchecked")
+	private List<Integer> getLobbyRange() {
         try {
-            return convertToIntegerArray((List<Double>)iv.invokeFunction("setLobbyRange", (Object) null));
+        	return convertToIntegerArray((List<Double>) iv.invokeFunction("setLobbyRange", (Object) null));
         } catch (ScriptException | NoSuchMethodException ex) { // they didn't define a lobby range
             List<Integer> defaultList = new ArrayList<>();
             defaultList.add(0);
@@ -463,7 +464,8 @@ public class EventManager {
             Object p = iv.invokeFunction("getEligibleParty", party.getPartyMembers());
             
             if(p != null) {
-                List<MaplePartyCharacter> lmpc = new ArrayList<>((List<MaplePartyCharacter>) p);
+                @SuppressWarnings("unchecked")
+				List<MaplePartyCharacter> lmpc = new ArrayList<>((List<MaplePartyCharacter>) p);
                 party.setEligibleMembers(lmpc);
                 return lmpc;
             }

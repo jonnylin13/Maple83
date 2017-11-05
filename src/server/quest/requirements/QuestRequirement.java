@@ -1,5 +1,5 @@
 /*
-	This file is part of the MapleSolaxia Maple Story Server
+	This file is part of the Maple83 Maple Story Server
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -31,6 +31,7 @@ import client.MapleQuestStatus;
 /**
  *
  * @author Tyler (Twdtwd)
+ * @contributor Jon (jonnylin13)
  */
 public class QuestRequirement extends MapleQuestRequirement {
 	Map<Integer, Integer> quests = new HashMap<>();

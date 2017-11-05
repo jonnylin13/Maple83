@@ -1,8 +1,10 @@
 /*
  This file is part of the OdinMS Maple Story Server
+ and Maple83 MapleStory Server
  Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
  Jan Christian Meyer <vimes@odinms.de>
+ Jonathan Lin <jlin3@scu.edu>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Affero General Public License as
@@ -38,6 +40,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+// import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.Lock;
@@ -65,6 +68,7 @@ import tools.FilePrinter;
 import tools.Pair;
 import client.MapleCharacter;
 import client.SkillFactory;
+// import client.command.Commands;
 import constants.ItemConstants;
 import constants.ServerConstants;
 import java.util.Calendar;
@@ -86,6 +90,7 @@ public class Server implements Runnable {
     private final PlayerBuffStorage buffStorage = new PlayerBuffStorage();
     private final Map<Integer, MapleAlliance> alliances = new LinkedHashMap<>();
     private boolean online = false;
+    // private Scanner sc;
     public static long uptime = System.currentTimeMillis();
     
     public static Server getInstance() {
@@ -248,7 +253,7 @@ public class Server implements Runnable {
             System.exit(0);
         }
 
-        System.out.println("MapleSolaxia v" + ServerConstants.VERSION + " starting up.\r\n");
+        System.out.println("Maple83 v" + ServerConstants.VERSION + " starting up.\r\n");
 
 
         if(ServerConstants.SHUTDOWNHOOK)
@@ -339,8 +344,15 @@ public class Server implements Runnable {
         
         System.out.println("Listening on port 8484\r\n\r\n");
 
-        System.out.println("Solaxia is now online.\r\n");
+        System.out.println("Maple83 is now online.\r\n");
         online = true;
+        
+        /* this.sc = new Scanner(System.in);
+        while (true) {
+        	if (!online) break;
+            String consoleCommand = this.sc.nextLine();
+            Commands.executeMaple83ConsoleCommand(this, consoleCommand.split(" "));
+        } */
     }
 
     public void shutdown() {

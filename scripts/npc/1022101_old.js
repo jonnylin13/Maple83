@@ -61,11 +61,11 @@ function action(mode, type, selection) {
             status--;
         if (status == 0 && mode == 1) {
 			if(cm.getPlayer().getLevel() < 20) {
-				cm.sendOk("Hello, I am the Vote Point exchanger for #rMapleSolaxia#k!\r\n\r\nI am sorry, but I can only exchange Vote Points for players #blevel 20 or over#k.");
+				cm.sendOk("Hello, I am the Vote Point exchanger for #rMaple83#k!\r\n\r\nI am sorry, but I can only exchange Vote Points for players #blevel 20 or over#k.");
 				cm.dispose();
 				return;
 			}
-			var outStr = "Hello, I am the Vote Point exchanger for #rMapleSolaxia#k!\r\n";
+			var outStr = "Hello, I am the Vote Point exchanger for #rMaple83#k!\r\n";
 			outStr += "You currently have #r#c" + itemToUse + "##k #t" + itemToUse + "# and #r" + vp + "#k Vote Points.#b\r\n\r\n";
 			outStr += "#L0#I would like to exchange my vote points for Maple Leaves#l\r\n";
 			outStr += "#L1#I would like to exchange 1 #t" + itemToUse + "# for "+ nxAmount + " NX Cash#l\r\n";

@@ -1,7 +1,8 @@
-========== MapleSolaxiaV2 ==========
+========== Maple83 ==========
 Credits:
 Ronan - Freelance Developer
 Vcoc - Freelance Developer
+jonnylin13 - Freelance Developer
 
 ---------------------------
 ToDo / Missing features list:

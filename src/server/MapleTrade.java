@@ -1,8 +1,10 @@
 /*
 	This file is part of the OdinMS Maple Story Server
+	and the Maple83 Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
 		       Matthias Butz <matze@odinms.de>
 		       Jan Christian Meyer <vimes@odinms.de>
+		       Jonathan Lin <jlin3@scu.edu>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -194,7 +196,7 @@ public class MapleTrade {
     private boolean fitsInInventory() {
         List<Pair<Item, MapleInventoryType>> tradeItems = new LinkedList<>();
         for (Item item : exchangeItems) {
-            tradeItems.add(new Pair(item, MapleItemInformationProvider.getInstance().getInventoryType(item.getItemId())));
+            tradeItems.add(new Pair<Item, MapleInventoryType>(item, MapleItemInformationProvider.getInstance().getInventoryType(item.getItemId())));
         }
         
         return MapleInventory.checkSpotsAndOwnership(chr, tradeItems);

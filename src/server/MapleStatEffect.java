@@ -1,8 +1,10 @@
 /*
  This file is part of the OdinMS Maple Story Server
+ and the Maple83 Server
  Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
  Jan Christian Meyer <vimes@odinms.de>
+ Jonathan Lin <jlin3@scu.edu>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Affero General Public License as
@@ -115,6 +117,7 @@ import constants.skills.WindArcher;
  * @author Matze
  * @author Frz
  * @author Ronan
+ * @contributor jonnylin13
  */
 public class MapleStatEffect {
 
@@ -181,7 +184,7 @@ public class MapleStatEffect {
         ret.morphId = MapleDataTool.getInt("morph", source, 0);
         ret.ghost = MapleDataTool.getInt("ghost", source, 0);
         ret.fatigue = MapleDataTool.getInt("incFatigue", source, 0);
-        ret.repeatEffect = MapleDataTool.getInt("repeatEffect", source, 0) > 0;
+        ret.setRepeatEffect(MapleDataTool.getInt("repeatEffect", source, 0) > 0);
 
         ret.sourceid = sourceid;
         ret.skill = skill;
@@ -260,7 +263,7 @@ public class MapleStatEffect {
             } else {
                 if(isMapChair(sourceid)) {
                     addBuffStatPairToListIfNotZero(statups, MapleBuffStat.MAP_CHAIR, 1);
-                } else if((sourceid == Beginner.NIMBLE_FEET || sourceid == Noblesse.NIMBLE_FEET || sourceid == Evan.NIMBLE_FEET || sourceid == Legend.AGILE_BODY) && ServerConstants.USE_ULTRA_NIMBLE_FEET == true) {
+                } else if((sourceid == Beginner.NIMBLE_FEET || sourceid == Noblesse.NIMBLE_FEET || sourceid == Evan.NIMBLE_FEET || sourceid == Legend.AGILE_BODY) && ServerConstants.USE_ULTRA_NIMBLE_FEET) {
                     ret.jump = (short)(ret.speed * 4);
                     ret.speed *= 15;
                 }
@@ -289,7 +292,7 @@ public class MapleStatEffect {
         
         int x = MapleDataTool.getInt("x", source, 0);
         
-        if((sourceid == Beginner.RECOVERY || sourceid == Noblesse.RECOVERY || sourceid == Evan.RECOVERY || sourceid == Legend.RECOVERY) && ServerConstants.USE_ULTRA_RECOVERY == true) {
+        if((sourceid == Beginner.RECOVERY || sourceid == Noblesse.RECOVERY || sourceid == Evan.RECOVERY || sourceid == Legend.RECOVERY) && ServerConstants.USE_ULTRA_RECOVERY) {
             x *= 10;
         }
         ret.x = x;
@@ -850,7 +853,7 @@ public class MapleStatEffect {
         SummonMovementType summonMovementType = getSummonMovementType();
         if (overTime || isCygnusFA() || summonMovementType != null) {
             if (summonMovementType != null && pos != null) {
-                if(summonMovementType.getValue() == summonMovementType.STATIONARY.getValue()) applyto.cancelBuffStats(MapleBuffStat.PUPPET);
+                if(summonMovementType.getValue() == SummonMovementType.STATIONARY.getValue()) applyto.cancelBuffStats(MapleBuffStat.PUPPET);
                 else applyto.cancelBuffStats(MapleBuffStat.SUMMON);
             }
             
@@ -1668,4 +1671,12 @@ public class MapleStatEffect {
     public Map<MonsterStatus, Integer> getMonsterStati() {
         return monsterStatus;
     }
+
+	public boolean isRepeatEffect() {
+		return repeatEffect;
+	}
+
+	public void setRepeatEffect(boolean repeatEffect) {
+		this.repeatEffect = repeatEffect;
+	}
 }

@@ -1,8 +1,10 @@
 /*
  This file is part of the OdinMS Maple Story Server
+ and the Maple83 Server
  Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
  Jan Christian Meyer <vimes@odinms.de>
+ Jonathan Lin <jlin3@scu.edu>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Affero General Public License as
@@ -111,6 +113,7 @@ import server.maps.AbstractMapleMapObject;
 /**
  *
  * @author Frz
+ * @contribute jonnylin13
  */
 public class MaplePacketCreator {
 
@@ -1592,8 +1595,9 @@ public class MaplePacketCreator {
                 if (inChat) { // quest bonus rate stuff
                         mplew.write(0);
                 }
-
-                int mod = ServerConstants.PARTY_EXPERIENCE_MOD != 1 ? ServerConstants.PARTY_EXPERIENCE_MOD * 100 : 0;
+                
+                // Why is this warning :(
+				int mod = (ServerConstants.PARTY_EXPERIENCE_MOD != 1) ? ServerConstants.PARTY_EXPERIENCE_MOD * 100 : 0;
 
                 mplew.write(mod); //0 = party bonus, 100 = 1x Bonus EXP, 200 = 2x Bonus EXP
                 mplew.writeInt(party); // party bonus 

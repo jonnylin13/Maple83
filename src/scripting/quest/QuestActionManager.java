@@ -23,7 +23,6 @@ package scripting.quest;
 
 import client.MapleClient;
 import scripting.npc.NPCConversationManager;
-import server.quest.MapleQuest;
 
 /**
  *

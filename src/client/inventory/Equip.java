@@ -47,7 +47,7 @@ public class Equip extends Item {
         }
     }
     
-    private static enum StatUpgrade {
+    public static enum StatUpgrade {
 
         incDEX(0), incSTR(1), incINT(2), incLUK(3),
         incMHP(4), incMMP(5), incPAD(6), incMAD(7),
@@ -58,6 +58,14 @@ public class Equip extends Item {
         private StatUpgrade(int value) {
             this.value = value;
         }
+
+		public int getValue() {
+			return value;
+		}
+
+		/** public void setValue(int value) {
+			this.value = value;
+		} **/
     }
     
     private byte upgradeSlots;
@@ -340,7 +348,7 @@ public class Equip extends Item {
             List<Pair<String, Integer>> elementalStats = MapleItemInformationProvider.getInstance().getItemLevelupStats(getItemId(), itemLevel);
             
             for(Pair<String, Integer> p: elementalStats) {
-                if(p.getRight() > 0) stats.add(new Pair(StatUpgrade.valueOf(p.getLeft()), p.getRight()));
+                if(p.getRight() > 0) stats.add(new Pair<StatUpgrade, Integer>(StatUpgrade.valueOf(p.getLeft()), p.getRight()));
             }
         }
         

@@ -73,6 +73,7 @@ import tools.Pair;
  *
  * @author kevintjuh93
  * @author Ronan (thread-oriented world schedules)
+ * @contributor jonnylin13
  */
 public class World {
 
@@ -111,7 +112,7 @@ public class World {
     private Map<Integer, Pair<MapleHiredMerchant, Byte>> activeMerchants = new LinkedHashMap<>();
     private long merchantUpdate;
     
-    private ScheduledFuture<?> charactersSchedule;
+	private ScheduledFuture<?> charactersSchedule;
     
     public World(int world, int flag, String eventmsg, int exprate, int droprate, int mesorate, int bossdroprate) {
         this.id = world;
@@ -129,7 +130,7 @@ public class World {
         
         petsSchedule = TimerManager.getInstance().register(new PetFullnessWorker(this), 60 * 1000, 60 * 1000);
         mountsSchedule = TimerManager.getInstance().register(new MountTirednessWorker(this), 60 * 1000, 60 * 1000);
-        charactersSchedule = TimerManager.getInstance().register(new CharacterAutosaverWorker(this), 60 * 60 * 1000, 60 * 60 * 1000);
+        setCharactersSchedule(TimerManager.getInstance().register(new CharacterAutosaverWorker(this), 60 * 60 * 1000, 60 * 60 * 1000));
     }
 
     public List<Channel> getChannels() {
@@ -585,7 +586,8 @@ public class World {
     }
 
     public void messengerChat(MapleMessenger messenger, String chattext, String namefrom) {
-    	String from = "";
+    	@SuppressWarnings("unused")
+		String from = "";
     	String to1 = "";
     	String to2 = "";
         for (MapleMessengerCharacter messengerchar : messenger.getMembers()) {
@@ -1073,4 +1075,12 @@ public class World {
         
         players.disconnectAll();
     }
+
+	public ScheduledFuture<?> getCharactersSchedule() {
+		return charactersSchedule;
+	}
+
+	public void setCharactersSchedule(ScheduledFuture<?> charactersSchedule) {
+		this.charactersSchedule = charactersSchedule;
+	}
 }

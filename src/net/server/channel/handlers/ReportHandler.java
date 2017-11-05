@@ -88,7 +88,7 @@ public final class ReportHandler extends AbstractMaplePacketHandler {
 		try {
                         con = DatabaseConnection.getConnection();
 			PreparedStatement ps = con.prepareStatement("INSERT INTO reports (`reporttime`, `reporterid`, `victimid`, `reason`, `chatlog`, `description`) VALUES (?, ?, ?, ?, ?, ?)");
-			ps.setString(1, currentTimestamp.toGMTString().toString());
+			ps.setString(1, currentTimestamp.toString());
 			ps.setInt(2, reporterid);
 			ps.setInt(3, victimid);
 			ps.setInt(4, reason);

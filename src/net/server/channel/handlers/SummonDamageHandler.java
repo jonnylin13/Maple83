@@ -1,8 +1,10 @@
 /*
 This file is part of the OdinMS Maple Story Server
+and the Maple83 MapleStory Server
 Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
 Matthias Butz <matze@odinms.de>
 Jan Christian Meyer <vimes@odinms.de>
+Jonathan Lin <jlin3@scu.edu>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -28,12 +30,10 @@ import client.SkillFactory;
 import client.status.MonsterStatusEffect;
 import java.util.ArrayList;
 import java.util.List;
-import net.AbstractMaplePacketHandler;
 import server.MapleStatEffect;
 import server.life.MapleMonster;
 import server.maps.MapleSummon;
 import tools.MaplePacketCreator;
-import tools.data.input.LittleEndianAccessor;
 import tools.data.input.SeekableLittleEndianAccessor;
 
 public final class SummonDamageHandler extends AbstractDealDamageHandler {

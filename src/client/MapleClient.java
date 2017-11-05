@@ -940,6 +940,7 @@ public class MapleClient {
 		engines.clear();
 	}
 
+	@SuppressWarnings("unused")
 	private void clear() {  //usable when defining client = null shortly after
 		this.accountName = null;
 		this.macs = null;

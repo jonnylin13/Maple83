@@ -1,0 +1,7 @@
+11/4/2017
+---------
+* Started this project! Hope this becomes a long a fruitful journey
+* Setup for eclipse
+* !face command fixed, != null instead of ==
+* Huge amount of code cleanup
+* Added console commands, stop/quit and restart

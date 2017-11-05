@@ -159,7 +159,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private static NumberFormat nf = new DecimalFormat("#,###,###,###");
     private static MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
     private static final String LEVEL_200 = "[Congrats] %s has reached Level 200! Congratulate %s on such an amazing achievement!";
-    private static final String[] BLOCKED_NAMES = {"admin", "owner", "moderator", "intern", "donor", "administrator", "help", "helper", "alert", "notice", "maplestory", "Solaxia", "fuck", "wizet", "fucking", "negro", "fuk", "fuc", "penis", "pussy", "asshole", "gay",
+    private static final String[] BLOCKED_NAMES = {"admin", "owner", "moderator", "intern", "donor", "administrator", "help", "helper", "alert", "notice", "maplestory", "Maple83", "fuck", "wizet", "fucking", "negro", "fuk", "fuc", "penis", "pussy", "asshole", "gay",
         "nigger", "homo", "suck", "cum", "shit", "shitty", "condom", "security", "official", "rape", "nigga", "sex", "tit", "boner", "orgy", "clit", "asshole", "fatass", "bitch", "support", "gamemaster", "cock", "gaay", "gm",
         "operate", "master", "sysop", "party", "GameMaster", "community", "message", "event", "test", "meso", "Scania", "renewal", "yata", "AsiaSoft", "henesys"};
     
@@ -2716,6 +2716,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         buffExpires.remove(sourceid);
     }
     
+    @SuppressWarnings("unused")
     private void dropWorstEffectFromItemEffectHolder(MapleBuffStat mbs) {
         Integer min = Integer.MAX_VALUE;
         Integer srcid = -1;
@@ -2758,6 +2759,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         }
     }
     
+    @SuppressWarnings("unused")
     private void debugListAllBuffs() {
         effLock.lock();
         chrLock.lock();
@@ -2778,6 +2780,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         }
     }
     
+    @SuppressWarnings("unused")
     private void debugListAllBuffsCount() {
         effLock.lock();
         chrLock.lock();
@@ -4691,12 +4694,12 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     }
 
     public void increaseGuildCapacity() { //hopefully nothing is null
-        if (getMeso() < getGuild().getIncreaseGuildCost(getGuild().getCapacity())) {
+        if (getMeso() < MapleGuild.getIncreaseGuildCost(getGuild().getCapacity())) {
             dropMessage(1, "You don't have enough mesos.");
             return;
         }
         Server.getInstance().increaseGuildCapacity(guildid);
-        gainMeso(-getGuild().getIncreaseGuildCost(getGuild().getCapacity()), true, false, false);
+        gainMeso(-MapleGuild.getIncreaseGuildCost(getGuild().getCapacity()), true, false, false);
     }
 
     public boolean isActiveBuffedValue(int skillid) {
@@ -4784,7 +4787,8 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         }
     }
 
-    public void levelUp(boolean takeexp) {
+    @SuppressWarnings("unused")
+	public void levelUp(boolean takeexp) {
         Skill improvingMaxHP = null;
         Skill improvingMaxMP = null;
         int improvingMaxHPLevel = 0;
@@ -4897,7 +4901,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         }
         if (ServerConstants.USE_PERFECT_PITCH && level >= 30) {
             //milestones?
-            if (MapleInventoryManipulator.checkSpace(client, 4310000, (short) 1, "")) {
+            if (MapleInventoryManipulator.checkSpace(client, 4310000, (short) 1, client.getPlayer().getName())) {
                 MapleInventoryManipulator.addById(client, 4310000, (short) 1);
             }
         }
@@ -4906,7 +4910,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             client.getWorldServer().broadcastPacket(MaplePacketCreator.serverNotice(6, String.format(LEVEL_200, names, names)));
         }
         
-        if(level % 20 == 0 && ServerConstants.USE_ADD_SLOTS_BY_LEVEL == true) {
+        if(level % 20 == 0 && ServerConstants.USE_ADD_SLOTS_BY_LEVEL) {
             if (!isGM()) {
                 for (byte i = 1; i < 5; i++) {
                     gainSlots(i, 4, true);
@@ -4915,7 +4919,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                 this.yellowMessage("You reached level " + level + ". Congratulations! As a token of your success, your inventory has been expanded a little bit.");
             }            
         }
-        if (level % 20 == 0 && ServerConstants.USE_ADD_RATES_BY_LEVEL == true) { //For the drop & meso rate
+        if (level % 20 == 0 && ServerConstants.USE_ADD_RATES_BY_LEVEL) { //For the drop & meso rate
             revertLastPlayerRates();
             setPlayerRates();
             this.yellowMessage("You managed to get level " + level + "! Getting experience and items seems a little easier now, huh?");
@@ -4976,11 +4980,11 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         } else if (level == 80) {
             yellowMessage("You think you are powerful enough? Try facing horntail!");
         } else if (level == 85) {
-            yellowMessage("Did you know? The majority of people who hit level 85 in Solaxia don't live to be 85 years old?");
+            yellowMessage("Did you know? The majority of people who hit level 85 in Maple83 don't live to be 85 years old?");
         } else if (level == 90) {
             yellowMessage("Hey do you like the amusement park? I heard Spooky World is the best theme park around. I heard they sell cute teddy-bears.");
         } else if (level == 95) {
-            yellowMessage("100% of people who hit level 95 in Solaxia don't live to be 95 years old.");
+            yellowMessage("100% of people who hit level 95 in Maple83 don't live to be 95 years old.");
         } else if (level == 100) {
             yellowMessage("Mid-journey so far... You just reached level 100! Now THAT's such a feat, however to manage the 200 you will need even more passion and determination than ever! Good hunting!");
         } else if (level == 105) {
@@ -5812,7 +5816,8 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         localint_ = getInt();
         localstr = getStr();
         localluk = getLuk();
-        int speed = 100, jump = 100;
+        @SuppressWarnings("unused")
+		int speed = 100, jump = 100;
         magic = localint_;
         watk = 0;
 
@@ -6577,7 +6582,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     }
 
     public void sendPolice(int greason, String reason, int duration) {
-        announce(MaplePacketCreator.sendPolice(String.format("You have been blocked by the#b %s Police for %s.#k", "Solaxia", reason)));
+        announce(MaplePacketCreator.sendPolice(String.format("You have been blocked by the#b %s Police for %s.#k", "Maple83", reason)));
         this.isbanned = true;
         TimerManager.getInstance().schedule(new Runnable() {
             @Override
@@ -7571,7 +7576,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
     public void autoban(String reason) {
         this.ban(reason);
-        announce(MaplePacketCreator.sendPolice(String.format("You have been blocked by the#b %s Police for HACK reason.#k", "Solaxia")));
+        announce(MaplePacketCreator.sendPolice(String.format("You have been blocked by the#b %s Police for HACK reason.#k", "Maple83")));
         TimerManager.getInstance().schedule(new Runnable() {
             @Override
             public void run() {

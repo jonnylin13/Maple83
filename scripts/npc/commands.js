@@ -38,7 +38,7 @@ function addCommand(comm, desc) {
         desc_cursor.push(desc);
 }
 
-function writeSolaxiaCommandsLv6() {    //Admin
+function writeMaple83CommandsLv6() {    //Admin
         comm_cursor = comm_lv6;
         desc_cursor = desc_lv6;
 
@@ -54,7 +54,7 @@ function writeSolaxiaCommandsLv6() {    //Admin
         addCommand("clearquest", "");
 }
 
-function writeSolaxiaCommandsLv5() {    //Developer
+function writeMaple83CommandsLv5() {    //Developer
         comm_cursor = comm_lv5;
         desc_cursor = desc_lv5;
 
@@ -73,7 +73,7 @@ function writeSolaxiaCommandsLv5() {    //Developer
         addCommand("debugtimer", "");
 }
 
-function writeSolaxiaCommandsLv4() {    //SuperGM
+function writeMaple83CommandsLv4() {    //SuperGM
         comm_cursor = comm_lv4;
         desc_cursor = desc_lv4;
 
@@ -95,7 +95,7 @@ function writeSolaxiaCommandsLv4() {    //SuperGM
         //addCommand("playernpc", "");
 }
 
-function writeSolaxiaCommandsLv3() {    //GM
+function writeMaple83CommandsLv3() {    //GM
         comm_cursor = comm_lv3;
         desc_cursor = desc_lv3;
 
@@ -148,7 +148,7 @@ function writeSolaxiaCommandsLv3() {    //GM
         addCommand("hair", "");
 }
 
-function writeSolaxiaCommandsLv2() {    //JrGM
+function writeMaple83CommandsLv2() {    //JrGM
         comm_cursor = comm_lv2;
         desc_cursor = desc_lv2;
 
@@ -182,7 +182,7 @@ function writeSolaxiaCommandsLv2() {    //JrGM
         addCommand("unbug", "");
 }
 
-function writeSolaxiaCommandsLv1() {    //Donator
+function writeMaple83CommandsLv1() {    //Donator
         comm_cursor = comm_lv1;
         desc_cursor = desc_lv1;
 
@@ -192,44 +192,44 @@ function writeSolaxiaCommandsLv1() {    //Donator
         addCommand("whereami", "");
 }
 
-function writeSolaxiaCommandsLv0() {    //Common
+function writeMaple83CommandsLv0() {    //Common
         comm_cursor = comm_lv0;
         desc_cursor = desc_lv0;
 
-        addCommand("commands", "");
-        addCommand("time", "");
-        addCommand("staff", "");
-        addCommand("uptime", "");
-        addCommand("gacha", "");
-        addCommand("whatdropsfrom", "");
-        addCommand("whodrops", "");
-        addCommand("dispose", "");
-        addCommand("equiplv", "");
-        addCommand("showrates", "");
-        addCommand("rates", "");
-        addCommand("online", "");
-        addCommand("gm", "");
-        addCommand("bug", "");
+        addCommand("commands", "Brings up the help command npc");
+        addCommand("time", "Displays the server time");
+        addCommand("staff", "Lists the staff of Maple83");
+        addCommand("uptime", "Server uptime");
+        addCommand("gacha", "Lists gacha drops");
+        addCommand("whatdropsfrom", "Lists drops from a monster");
+        addCommand("whodrops", "Lists monsters that drop a specified item");
+        addCommand("dispose", "Refreshes your client");
+        addCommand("equiplv", "Shows your equipment level");
+        addCommand("showrates", "Shows the server's rates");
+        addCommand("rates", "Shows your personal rates");
+        addCommand("online", "Lists online");
+        addCommand("gm", "Send a message to a gm");
+        addCommand("bug", "Report a bug");
 	//addCommand("points", "");
-        addCommand("joinevent", "");
-        addCommand("leaveevent", "");
-        addCommand("bosshp", "");
-        addCommand("ranks", "");
+        addCommand("joinevent", "Join an event");
+        addCommand("leaveevent", "Leave an event");
+        addCommand("bosshp", "View a boss' hp");
+        addCommand("ranks", "View server ranking");
 }
 
-function writeSolaxiaCommands() {
-        writeSolaxiaCommandsLv0();  //Common
-        writeSolaxiaCommandsLv1();  //Donator
-        writeSolaxiaCommandsLv2();  //JrGM
-        writeSolaxiaCommandsLv3();  //GM
-        writeSolaxiaCommandsLv4();  //Developer
-        writeSolaxiaCommandsLv5();  //SuperGM
-        writeSolaxiaCommandsLv6();  //Admin
+function writeMaple83Commands() {
+        writeMaple83CommandsLv0();  //Common
+        writeMaple83CommandsLv1();  //Donator
+        writeMaple83CommandsLv2();  //JrGM
+        writeMaple83CommandsLv3();  //GM
+        writeMaple83CommandsLv4();  //Developer
+        writeMaple83CommandsLv5();  //SuperGM
+        writeMaple83CommandsLv6();  //Admin
 }
 
 function start() {
         status = -1;
-        writeSolaxiaCommands();
+        writeMaple83Commands();
         action(1, 0, 0);
 }
 

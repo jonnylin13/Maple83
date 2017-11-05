@@ -366,7 +366,8 @@ public class MapleMap {
         }
     }
     
-    private void spawnRangedMapObject(MapleMapObject mapobject, DelayedPacketCreation packetbakery, SpawnCondition condition) {
+    @SuppressWarnings("unused")
+	private void spawnRangedMapObject(MapleMapObject mapobject, DelayedPacketCreation packetbakery, SpawnCondition condition) {
         chrRLock.lock();
         
         try {
@@ -500,7 +501,7 @@ public class MapleMap {
         }
         
         distn = Math.sqrt(distn);
-        return new Pair(getRoundedCoordinate(angle), Integer.valueOf((int)distn));
+        return new Pair<String, Integer>(getRoundedCoordinate(angle), Integer.valueOf((int)distn));
     }
 
     private void dropFromMonster(final MapleCharacter chr, final MapleMonster mob) {
@@ -1014,7 +1015,7 @@ public class MapleMap {
     }
 
     public void killMonster(int monsId) {
-        List<MapleMapObject> mmoL = new LinkedList(getMapObjects());
+        List<MapleMapObject> mmoL = new LinkedList<MapleMapObject>(getMapObjects());
         
         for (MapleMapObject mmo : mmoL) {
             if (mmo instanceof MapleMonster) {

@@ -579,7 +579,8 @@ public class MapleItemInformationProvider {
         return (short) Randomizer.rand(-ServerConstants.CHSCROLL_STAT_RANGE, ServerConstants.CHSCROLL_STAT_RANGE);
     }
     
-    private void scrollEquipWithChaos(Equip nEquip) {
+    @SuppressWarnings("unused")
+	private void scrollEquipWithChaos(Equip nEquip) {
         if(ServerConstants.SCROLL_CHANCE_RATE > 0) {
             int temp;
             short curStr, curDex, curInt, curLuk, curWatk, curWdef, curMatk, curMdef, curAcc, curAvoid, curSpeed, curJump, curHp, curMp;
@@ -792,7 +793,8 @@ public class MapleItemInformationProvider {
         }
     }
     
-    public Item scrollEquipWithId(Item equip, int scrollId, boolean usingWhiteScroll, int vegaItemId, boolean isGM) {
+    @SuppressWarnings("unused")
+	public Item scrollEquipWithId(Item equip, int scrollId, boolean usingWhiteScroll, int vegaItemId, boolean isGM) {
         boolean assertGM = (isGM && ServerConstants.USE_PERFECT_GM_SCROLL);
         
         if (equip instanceof Equip) {

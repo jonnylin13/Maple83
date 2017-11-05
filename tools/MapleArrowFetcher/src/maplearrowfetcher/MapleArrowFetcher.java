@@ -153,10 +153,10 @@ public class MapleArrowFetcher {
     
     private static void updateMobsArrowRange() {
         System.out.print("Generating updated ranges... ");
-        Connection con = DatabaseConnection.getConnection();
         Map<Integer, List<Integer>> existingEntries = new HashMap<>(200);
         
         try {
+            Connection con = DatabaseConnection.getConnection();
             // select all arrow drop entries on the DB, to update their values
             PreparedStatement ps = con.prepareStatement("SELECT dropperid, itemid FROM drop_data WHERE itemid >= " + minArrowId + " AND itemid <= " + maxArrowId + " ORDER BY itemid;");
             ResultSet rs = ps.executeQuery();

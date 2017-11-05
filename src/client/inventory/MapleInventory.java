@@ -1,8 +1,10 @@
 /*
 	This file is part of the OdinMS Maple Story Server
+	and the Maple83 Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
 		       Matthias Butz <matze@odinms.de>
 		       Jan Christian Meyer <vimes@odinms.de>
+		       Jonathan Lin <jlin3@scu.edu>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -43,6 +45,7 @@ import tools.FilePrinter;
 /**
  *
  * @author Matze, Ronan
+ * @contributor jonnylin13
  */
 public class MapleInventory implements Iterable<Item> {
     private MapleCharacter owner;
@@ -155,7 +158,7 @@ public class MapleInventory implements Iterable<Item> {
                 }
             }
         } else {
-            for (Item item : itemList) {
+            for (@SuppressWarnings("unused") Item item : itemList) {
                 required -= 1;
 
                 if(required >= 0) {

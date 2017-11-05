@@ -1,8 +1,10 @@
 /*
 	This file is part of the OdinMS Maple Story Server
+	and the Maple83 Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
 		       Matthias Butz <matze@odinms.de>
 		       Jan Christian Meyer <vimes@odinms.de>
+		       Jonathan Lin <jlin3@scu.edu>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -24,6 +26,7 @@ package server.events.gm;
 /**
  *
  * @author kevintjuh93
+ * @contributor jonnylin13
  */
 public class MapleCoconuts {
 	
@@ -33,7 +36,7 @@ public class MapleCoconuts {
     private long hittime = System.currentTimeMillis();
 
     public MapleCoconuts(int id) {
-        this.id = id;
+        this.setId(id);
     }
 
     public void hit() {
@@ -60,4 +63,12 @@ public class MapleCoconuts {
     public long getHitTime() {
         return hittime;
     }
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

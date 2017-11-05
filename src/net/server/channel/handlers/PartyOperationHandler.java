@@ -61,7 +61,8 @@ public final class PartyOperationHandler extends AbstractMaplePacketHandler {
         }
     }
     
-    @Override
+    @SuppressWarnings("unused")
+	@Override
     public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
         int operation = slea.readByte();
         MapleCharacter player = c.getPlayer();

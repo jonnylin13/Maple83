@@ -1,8 +1,10 @@
 /*
  This file is part of the OdinMS Maple Story Server
+ and the Maple83 MapleStory Server
  Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
  Jan Christian Meyer <vimes@odinms.de>
+ Jonathan Lin <jlin3@scu.edu>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Affero General Public License as
@@ -43,9 +45,11 @@ import tools.MaplePacketCreator;
 /**
  *
  * @author Matze
+ * @contributor jonnylin13
  */
 public class MapleInventoryManipulator {
 
+	// Add item by id
     public static boolean addById(MapleClient c, int itemId, short quantity) {
         return addById(c, itemId, quantity, null, -1, -1);
     }
@@ -229,6 +233,7 @@ public class MapleInventoryManipulator {
         return true;
     }
     
+    // Checks space in player's inventory?
     public static boolean checkSpace(MapleClient c, int itemid, int quantity, String owner) {
         MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
         MapleInventoryType type = ii.getInventoryType(itemid);
@@ -241,6 +246,7 @@ public class MapleInventoryManipulator {
                     for (Item eItem : existing) {
                         short oldQ = eItem.getQuantity();
                         if (oldQ < slotMax && owner.equals(eItem.getOwner())) {
+                        
                             short newQ = (short) Math.min(oldQ + quantity, slotMax);
                             quantity -= (newQ - oldQ);
                         }

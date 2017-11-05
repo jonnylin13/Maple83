@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 public class ServerConstants {
-    //Database Configuration
+    //Database Configuration ACTUALLY SET IN CONFIG
     public static String DB_URL = "";
     public static String DB_USER = "";
     public static String DB_PASS = "";
@@ -27,11 +27,11 @@ public class ServerConstants {
     public static String HOST;
 	
     //Other Configuration
-    public static boolean JAVA_8;
+    public static boolean JAVA_8 = false;
     public static boolean SHUTDOWNHOOK;
 	
     //Server Flags
-    public static final boolean USE_CUSTOM_KEYSET = true;           //Enables auto-setup of the MapleSolaxiaV2's custom keybindings when creating characters.
+    public static final boolean USE_CUSTOM_KEYSET = false;           //Enables auto-setup of the Maple83's custom keybindings when creating characters.
     public static final boolean USE_MAXRANGE_ECHO_OF_HERO = true;
     public static final boolean USE_MAXRANGE = true;                //Will send and receive packets from all events on a map, rather than those of only view range.
     public static final boolean USE_DEBUG = false;                  //Will enable some text prints on the client, oriented for debugging purposes.
@@ -60,16 +60,16 @@ public class ServerConstants {
     public static final boolean USE_UNDERLEVELED_EXP_BLOCK = true;  //Players N levels below the killed mob will gain no experience from defeating it.
     
     //Server Rates And Experience
-    public static final int EXP_RATE = 10;
-    public static final int MESO_RATE = 10;
-    public static final int DROP_RATE = 10;
-    public static final int BOSS_DROP_RATE = 20;
-    public static final double EQUIP_EXP_RATE = 10.0;               //Rate for equipment exp gain, grows linearly. Set 1.0 for default (about 100~200 same-level range mobs killed to pass equip from level 1 to 2).
+    public static final int EXP_RATE = 4;
+    public static final int MESO_RATE = 3;
+    public static final int DROP_RATE = 2;
+    public static final int BOSS_DROP_RATE = 4;
+    public static final double EQUIP_EXP_RATE = 0.5;               //Rate for equipment exp gain, grows linearly. Set 1.0 for default (about 100~200 same-level range mobs killed to pass equip from level 1 to 2).
     
-    public static final double PARTY_BONUS_EXP_RATE = 1.0;          //Rate for the party exp reward.
-    public static final double PQ_BONUS_EXP_RATE = 0.5;             //Rate for the PQ exp reward.
+    public static final double PARTY_BONUS_EXP_RATE = 1.2;          //Rate for the party exp reward.
+    public static final double PQ_BONUS_EXP_RATE = 1.0;             //Rate for the PQ exp reward.
     
-    public static final int PARTY_EXPERIENCE_MOD = 1;               //Change for event stuff.
+    public static int PARTY_EXPERIENCE_MOD = 1;               //Change for event stuff.
     
     //Miscellaneous Configuration
     public static final byte MIN_UNDERLEVEL_TO_EXP_GAIN = 5;        //Characters are unable to get EXP from a mob if their level are under this threshold, only if "USE_UNDERLEVELED_EXP_BLOCK" is enabled.
@@ -102,7 +102,7 @@ public class ServerConstants {
     public static final boolean USE_ADD_SLOTS_BY_LEVEL = true;  //Slots are added each 20 levels.
     public static final boolean USE_ADD_RATES_BY_LEVEL = true;  //Rates are added each 20 levels.
     public static final boolean USE_STACK_COUPON_RATES = true;  //Multiple coupons effects builds up together.
-    public static final boolean USE_PERFECT_PITCH = true;	//For lvl 30 or above, each lvlup grants player 1 perfect pitch.
+    public static final boolean USE_PERFECT_PITCH = false;	//For lvl 30 or above, each lvlup grants player 1 perfect pitch.
     public static final int FAME_GAIN_BY_QUEST = 4;             //Fame gain each N quest completes, set 0 to disable.
     
     //Equipment Configuration

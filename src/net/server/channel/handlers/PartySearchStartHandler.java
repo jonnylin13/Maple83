@@ -27,7 +27,6 @@ import net.AbstractMaplePacketHandler;
 import net.server.world.MapleParty;
 import server.maps.MapleMap;
 import server.maps.MapleMapObject;
-import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
 import client.MapleCharacter;
 import client.MapleClient;

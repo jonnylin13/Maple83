@@ -1,8 +1,10 @@
 /*
  This file is part of the OdinMS Maple Story Server
- Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
+ and the Maple83 MapleStory Server
+ Copyright (C) 2017 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
  Jan Christian Meyer <vimes@odinms.de>
+ Jonathan Lin <jlin3@scu.edu>
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Affero General Public License as
@@ -207,7 +209,8 @@ public final class AllianceOperationHandler extends AbstractMaplePacketHandler {
         return mplew.getPacket();
     }
 
-    private static byte[] sendInvitation(int allianceid, int playerid, final String guildname) {
+    @SuppressWarnings("unused")
+	private static byte[] sendInvitation(int allianceid, int playerid, final String guildname) {
         MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
         mplew.writeShort(SendOpcode.ALLIANCE_OPERATION.getValue());
         mplew.write(0x05);
@@ -228,7 +231,8 @@ public final class AllianceOperationHandler extends AbstractMaplePacketHandler {
         return mplew.getPacket();
     }
 
-    private static byte[] sendChangeLeader(int allianceid, int playerid, int victim) {
+    @SuppressWarnings("unused")
+	private static byte[] sendChangeLeader(int allianceid, int playerid, int victim) {
         MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
         mplew.writeShort(SendOpcode.ALLIANCE_OPERATION.getValue());
         mplew.write(0x08);
@@ -238,7 +242,8 @@ public final class AllianceOperationHandler extends AbstractMaplePacketHandler {
         return mplew.getPacket();
     }
 
-    private static byte[] sendChangeRank(int allianceid, int playerid, int int1, byte byte1) {
+    @SuppressWarnings("unused")
+	private static byte[] sendChangeRank(int allianceid, int playerid, int int1, byte byte1) {
         MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
         mplew.writeShort(SendOpcode.ALLIANCE_OPERATION.getValue());
         mplew.write(0x09);

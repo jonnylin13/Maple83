@@ -1,8 +1,10 @@
 /*
 	This file is part of the OdinMS Maple Story Server
+	and the Maple83 MapleStory Server
     Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
 		       Matthias Butz <matze@odinms.de>
 		       Jan Christian Meyer <vimes@odinms.de>
+		       Jonathan Lin <jlin3@scu.edu>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -26,10 +28,8 @@ import client.MapleClient;
 import client.MapleKeyBinding;
 import client.Skill;
 import client.SkillFactory;
-import client.autoban.AutobanFactory;
 import client.inventory.MapleInventoryType;
 import net.AbstractMaplePacketHandler;
-import tools.FilePrinter;
 import tools.data.input.SeekableLittleEndianAccessor;
 
 public final class KeymapChangeHandler extends AbstractMaplePacketHandler {

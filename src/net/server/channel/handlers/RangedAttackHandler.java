@@ -1,8 +1,10 @@
 /*
 This file is part of the OdinMS Maple Story Server
+and the Maple83 Server
 Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
 Matthias Butz <matze@odinms.de>
 Jan Christian Meyer <vimes@odinms.de>
+Jonathan Lin <jlin@scu.edu>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -24,7 +26,6 @@ package net.server.channel.handlers;
 import server.MapleInventoryManipulator;
 import server.MapleItemInformationProvider;
 import server.MapleStatEffect;
-import server.TimerManager;
 import tools.MaplePacketCreator;
 import tools.Randomizer;
 import tools.data.input.SeekableLittleEndianAccessor;

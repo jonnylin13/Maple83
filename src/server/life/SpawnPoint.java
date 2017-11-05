@@ -40,7 +40,7 @@ public class SpawnPoint {
         this.team = team;
         this.fh = monster.getFh();
         this.f = monster.getF();
-        this.immobile = immobile;
+        this.setImmobile(immobile);
         this.mobInterval = mobInterval;
         this.nextPossibleSpawn = System.currentTimeMillis();
     }
@@ -123,4 +123,12 @@ public class SpawnPoint {
     public int getTeam() {
         return team;
     }
+
+	public boolean isImmobile() {
+		return immobile;
+	}
+
+	public void setImmobile(boolean immobile) {
+		this.immobile = immobile;
+	}
 }

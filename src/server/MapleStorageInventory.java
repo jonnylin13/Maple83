@@ -1,5 +1,5 @@
 /*
-	This file is part of the MapleSolaxiaV2 Maple Story Server
+	This file is part of the Maple83 Maple Story Server
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 import constants.ItemConstants;
-import constants.ServerConstants;
+// import constants.ServerConstants;
 
 import client.MapleClient;
 import client.inventory.Equip;
@@ -36,6 +36,7 @@ import java.util.ArrayList;
 /**
  *
  * @author RonanLana
+ * @contributor Jon (jonnylin13)
  */
 
 class PairedQuicksort {
@@ -197,7 +198,8 @@ public class MapleStorageInventory {
         return slotLimit;
     }
     
-    private Collection<Item> list() {
+    @SuppressWarnings("unused")
+	private Collection<Item> list() {
         return Collections.unmodifiableCollection(inventory.values());
     }
 
@@ -358,9 +360,9 @@ public class MapleStorageInventory {
             this.removeSlot(item.getPosition());
         }
         
-        int invTypeCriteria = 1;
-        int sortCriteria = (ServerConstants.USE_ITEM_SORT_BY_NAME == true) ? 2 : 0;
-        PairedQuicksort pq = new PairedQuicksort(itemarray, sortCriteria, invTypeCriteria);
+        /** int invTypeCriteria = 1;
+        int sortCriteria = (ServerConstants.USE_ITEM_SORT_BY_NAME) ? 2 : 0;
+		PairedQuicksort pq = new PairedQuicksort(itemarray, sortCriteria, invTypeCriteria); **/
         
         inventory.clear();
         return itemarray;

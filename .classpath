@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="cores/HikariCP-java7-2.4.12.jar"/>
+	<classpathentry kind="lib" path="cores/mina-core-2.0.7.jar"/>
+	<classpathentry kind="lib" path="cores/slf4j-api-1.6.6.jar"/>
+	<classpathentry kind="lib" path="cores/slf4j-jdk14-1.7.5.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/jono/Desktop/Maple83/cores/mysql-connector-java-bin.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

@@ -32,7 +32,6 @@ import net.AbstractMaplePacketHandler;
 import server.MapleInventoryManipulator;
 import server.MapleItemInformationProvider;
 import tools.MaplePacketCreator;
-import tools.Randomizer;
 import tools.data.input.SeekableLittleEndianAccessor;
 
 public final class SkillBookHandler extends AbstractMaplePacketHandler {

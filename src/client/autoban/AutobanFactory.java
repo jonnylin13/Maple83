@@ -32,6 +32,7 @@ import tools.MaplePacketCreator;
 /**
  *
  * @author kevintjuh93
+ * @contributor jonnylin13
  */
 public enum AutobanFactory {
 	MOB_COUNT,
@@ -79,12 +80,14 @@ public enum AutobanFactory {
 		return expiretime;
 	}
 
+	@SuppressWarnings("unused")
 	public void addPoint(AutobanManager ban, String reason) {
             if(ServerConstants.USE_AUTOBAN == true) {
 		ban.addPoint(this, reason);
             }
 	}
 	
+	@SuppressWarnings("unused")
 	public void alert(MapleCharacter chr, String reason) {
             if(ServerConstants.USE_AUTOBAN == true) {
 		FilePrinter.printError("autobanwarning.txt", (chr != null ? MapleCharacter.makeMapleReadable(chr.getName()) : "") + " caused " + this.name() + " " + reason + "\r\n");
@@ -95,6 +98,7 @@ public enum AutobanFactory {
             }
 	}
 	
+	@SuppressWarnings("unused")
 	public void autoban(MapleCharacter chr, String value) {
             if(ServerConstants.USE_AUTOBAN == true) {
 		chr.autoban("Autobanned for (" + this.name() + ": " + value + ")");

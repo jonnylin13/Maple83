@@ -218,8 +218,9 @@ public final class InventorySortHandler extends AbstractMaplePacketHandler {
         }
         
         int invTypeCriteria = (MapleInventoryType.getByType(inventoryType) == MapleInventoryType.EQUIP) ? 3 : 1;
-        int sortCriteria = (ServerConstants.USE_ITEM_SORT_BY_NAME == true) ? 2 : 0;
-        PairedQuicksort pq = new PairedQuicksort(itemarray, sortCriteria, invTypeCriteria);
+        int sortCriteria = (ServerConstants.USE_ITEM_SORT_BY_NAME) ? 2 : 0;
+        @SuppressWarnings("unused")
+		PairedQuicksort pq = new PairedQuicksort(itemarray, sortCriteria, invTypeCriteria);
         
         for (Item item : itemarray) {
             inventory.addItem(item);

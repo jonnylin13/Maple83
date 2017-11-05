@@ -46,7 +46,6 @@ import server.life.MobSkillFactory;
 import server.maps.MapleMap;
 import server.maps.MapleMapObject;
 import server.maps.MapleMapObjectType;
-import server.maps.MapleMiniDungeon;
 import server.partyquest.PartyQuest;
 import server.partyquest.Pyramid;
 import server.quest.MapleQuest;
@@ -343,7 +342,8 @@ public class AbstractPlayerInteraction {
         public Item evolvePet(byte slot, int afterId) {
             MaplePet evolved = null;
             MaplePet target = null;
-            Item tmp;
+            @SuppressWarnings("unused")
+			Item tmp;
             
             long period = 90;    //refreshes expiration date: 90 days
             period *= 24;
@@ -453,7 +453,7 @@ public class AbstractPlayerInteraction {
                                     Equip it = (Equip)item;
                                     if(isAccessory(item.getItemId()) && it.getUpgradeSlots() <= 0) it.setUpgradeSlots(3);
                                 
-                                    if(ServerConstants.USE_ENHANCED_CRAFTING == true && c.getPlayer().getCS() == true) {
+                                    if(ServerConstants.USE_ENHANCED_CRAFTING && c.getPlayer().getCS()) {
                                         Equip eqp = (Equip)item;
                                         eqp.setUpgradeSlots((byte)(eqp.getUpgradeSlots() + 1));
 
