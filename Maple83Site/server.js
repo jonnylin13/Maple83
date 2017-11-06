@@ -34,6 +34,7 @@ app.get('/api/news/get', (req, res) => {
             body: 'This is a test post'
         }
     ];
+    console.log('GET request received');
     res.json(news);
 
 });

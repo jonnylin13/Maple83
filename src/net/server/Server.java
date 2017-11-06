@@ -252,7 +252,6 @@ public class Server implements Runnable {
 		}
 
 		System.out.println("Maple83 v" + ServerConstants.VERSION + " starting up.\r\n");
-
 		if (ServerConstants.SHUTDOWNHOOK)
 			Runtime.getRuntime().addShutdownHook(new Thread(shutdown(false)));
 
@@ -771,6 +770,7 @@ public class Server implements Runnable {
 							}
 						}
 					}
+					
 					worlds.clear();
 					worlds = null;
 					channels.clear();
@@ -779,21 +779,28 @@ public class Server implements Runnable {
 					worldRecommendedList = null;
 
 					System.out.println("Worlds + Channels are offline.");
+					
 					acceptor.unbind();
 					acceptor = null;
+					
 					if (!restart) {
-						System.exit(0);
+						System.out.println("Completing shutdown...");
+						// Be very careful with this
+						// can be harmful so I'm assuming that 
+						// all shutdown operations have been performed
+						Runtime.getRuntime().halt(0);
 					} else {
 						System.out.println("\r\nRestarting the server....\r\n");
 						try {
-							instance.finalize();// FUU I CAN AND IT'S FREE
+							instance.finalize();
 						} catch (Throwable ex) {
 							ex.printStackTrace();
 						}
 						instance = null;
 						System.gc();
-						getInstance().run();// DID I DO EVERYTHING?! D:
+						getInstance().run();
 					}
+					
 				} finally {
 					shutdownLock.unlock();
 				}

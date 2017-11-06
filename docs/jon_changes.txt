@@ -10,3 +10,5 @@
 ---------
 * Backed up old quest wz
 * Removed quest requirements for quest 8249 7th day market
+* Discovered d/c bug with Crossroad to Ereve merchant
+* Fixed net.server.Server shutdown
